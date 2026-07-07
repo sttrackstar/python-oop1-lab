@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 
 class Coffee:
-    def __init__(self, name, origin, roast):
+    def __init__(self, name, strength):
         self.name = name
-        self.origin = origin
-        self.roast = roast
+        self.strength = strength
 
-    def __str__(self):
-        return f"{self.name} from {self.origin} ({self.roast} roast)"
+    @property
+    def strength(self):
+        return self._strength
+
+    @strength.setter
+    def strength(self, value):
+        if isinstance(value, int):
+            self._strength = value
+        else:
+            print("strength must be an integer")
+
+    def brew(self):
+        print(f"Brewing a cup of {self.name} with strength {self.strength}...")
