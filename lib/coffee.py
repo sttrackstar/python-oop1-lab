@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 
 class Coffee:
-    def __init__(self, name, strength):
-        self.name = name
-        self.strength = strength
+    def __init__(self, size, price):
+        self.size = size
+        self.price = price
 
     @property
-    def strength(self):
-        return self._strength
+    def size(self):
+        return self._size
 
-    @strength.setter
-    def strength(self, value):
-        if isinstance(value, int):
-            self._strength = value
+    @size.setter
+    def size(self, value):
+        
+        if value in ["Small", "Medium", "Large"]:
+            self._size = value
         else:
-            print("strength must be an integer")
+            print("size must be Small, Medium, or Large")
 
-    def brew(self):
-        print(f"Brewing a cup of {self.name} with strength {self.strength}...")
+    def tip(self):
+        self.price += 1
+        print("This coffee is great, here’s a tip!")
